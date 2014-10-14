@@ -44,13 +44,18 @@ get '/foods/:id/edit'  do
   erb :"foods/edit"
 end
 
-#patch '/foods/:id' do
-  #food = Food.find(params[:id])
-  #food.update({ params['comment_body']})
-  #redirect "/foods"
-#end
+patch '/foods/:id' do
+  @food = Food.find(params[:id])
+  name = params['food_name']
+  cuisine = params['food_cuisine']
+  price = params['food_price']
+  @food.update({name: name, cuisine: cuisine, price: price})
+  redirect '/foods'
+end
 
 delete '/foods/:id' do
+  Food.delete(params[:id])
+  redirect "/foods"
 end
 
 
