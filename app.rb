@@ -3,7 +3,7 @@ Bundler.require
 
 ActiveRecord::Base.establish_connection({
   adapter: 'postgresql',
-  database: 'resturant'
+  database: 'skeets'
  })
 
 
@@ -14,6 +14,43 @@ require_relative 'models/party'
 
 get '/' do
   erb :index
+end
+
+
+get '/foods' do
+  @menu = Food.all
+  erb :'foods/index'
+end
+
+get '/foods/new' do
+  erb :'foods/new'
+end
+
+get '/foods/:id' do
+  erb :'foods/show'
+end
+
+post '/foods' do
+  name = params['food_name']
+  cuisine = params['food_cuisine']
+  price = params['food_price']
+  Food.create({name: name, cuisine: cuisine, price: price})
+  redirect '/foods'
+end
+
+
+get '/foods/:id/edit'  do
+  @food = Food.find(params[:id])
+  erb :"foods/edit"
+end
+
+#patch '/foods/:id' do
+  #food = Food.find(params[:id])
+  #food.update({ params['comment_body']})
+  #redirect "/foods"
+#end
+
+delete '/foods/:id' do
 end
 
 
