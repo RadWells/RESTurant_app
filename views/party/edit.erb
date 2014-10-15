@@ -1,0 +1,9 @@
+<h2>Edit a Party</h2>
+
+<form action="/parties/<%= @party.id %>" method= "post">
+<input type="hidden" name="_method" value="patch">
+  <input type="text" name="size" value="Size">
+  <input type="text" name="table_number" value="Table Number">
+  <input type="text" name="paid" value="Paid?">
+  <input type="submit">
+</form>

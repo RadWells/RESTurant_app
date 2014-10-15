@@ -1,5 +1,5 @@
 <ul>
   <% @patrons.each do |patron|%>
-  <li> <a href="/foods/<%= item.id %>"> <%= patron.name%> : $<%= patron.size %> </li>
+  <li> <a href="/parties/<%= patron.id %>">Table Number: <%= patron.table_number%> : Party Size <%= patron.size %> </li>
  <%end%>
 </ul>

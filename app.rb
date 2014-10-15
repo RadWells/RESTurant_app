@@ -80,24 +80,69 @@ end
 
 #+GET | /parties/:id | Display a single party and options for adding a food item to the party
 
-
 #+GET | /parties/new | Display a form for a new party
 
+get '/parties/new' do
+  erb :'party/new'
+end
 
 #+POST | /parties | Creates a new party
+post '/parties' do
+  table = params['table_number']
+  size = params['size']
+  paid = params['paid']
+  Party.create({table_number: table, size: size, paid: paid})
+  redirect '/parties'
+end
+
+
+get '/parties/:id' do
+  @party = Party.find(params[:id])
+  erb :"party/show"
+end
 
 
 #+GET | /parties/:id/edit | Display a form for to edit a party's details
-
+get '/parties/:id/edit'  do
+  @party = Party.find(params[:id])
+  erb :"party/edit"
+end
 
 #+PATCH | /parties/:id | Updates a party's details
-
+patch '/parties/:id' do
+  @group = Party.find(params[:id])
+  table = params['table_number']
+  size = params['size']
+  paid = params['paid']
+  @group.update({table_number: table, size: size, paid: paid})
+  redirect '/parties'
+end
 
 #+DELETE | /parties/:id | Delete a party
-
+delete '/parties/:id' do
+  Party.delete(params[:id])
+  redirect '/parties'
+end
 
 #+POST | /orders | Creates a new order
+post '/parties' do
+  table = params['table_number']
+  size = params['size']
+  paid = params['paid']
+  Party.create({table_number: table, size: size, paid: paid})
+  redirect '/parties'
+end
+
+
+
 #+PATCH | /orders/:id | Change item to no-charge
+
+
+
+
 #+DELETE | /orders | Removes an order
+
+
+
 #+GET | /parties/:id/receipt | Saves the party's receipt data to a file. Displays the content of the receipt. Offer the file for download.
 #+PATCH | /parties/:id/checkout | Marks the party as paid

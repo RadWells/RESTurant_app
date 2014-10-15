@@ -1,0 +1,16 @@
+<h2> <%= @party.table_number %></h2>
+
+<h1> Current Orders: <%= @party.orders %></h1>
+<h1> Paid Bill: <%= @party.paid %> </h1>
+
+
+
+
+<a href="/parties/<%= @party.id %>/edit">Edit this party?</a>
+
+
+
+<form action="/parties/<%= @party.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
+</form>
