@@ -27,8 +27,10 @@ get '/foods/new' do
 end
 
 get '/foods/:id' do
-  erb :'foods/show'
+  @item = Food.find(params[:id])
+  erb :"foods/show"
 end
+
 
 post '/foods' do
   name = params['food_name']
@@ -55,7 +57,7 @@ end
 
 delete '/foods/:id' do
   Food.delete(params[:id])
-  redirect "/foods"
+  redirect '/foods'
 end
 
 
