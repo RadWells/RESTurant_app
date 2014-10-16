@@ -1,17 +1,12 @@
-<h2> <%= @item.name %></h2>
-
-<h1> A <%= @item.cuisine %> dish brought to you at the low price of <%= @item.price%></h1>
-<h1> Orders Pending: <%= @item.orders %></h1>
 
 
-
+<h2> <%= @item.name %>  :  <%= @item.cuisine%>  :  $<%= @item.price%></h2>
+<h3> Orders Pending: <%= @item.orders %></h3>
 
 <a href="/foods/<%= @item.id %>/edit">Edit this item?</a>
 
-
-
 <form action="/foods/<%= @item.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Remove">
+  <input type="submit" value="Remove From Menu">
 </form>
 

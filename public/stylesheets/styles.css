@@ -1,8 +1,23 @@
+* {
+font-family: 'Amatic SC', cursive;
+color: #CD2626;
+}
+
+a {
+  text-decoration: none;
+}
+
 body {
   background-color: #EEB422;
 }
 
-* {
-font-family: 'Droid Sans', sans-serif;
+ul  {
+list-style-type: none;
 }
 
+.banner {
+
+font-style: bold;
+font-size: 30px;
+
+}
