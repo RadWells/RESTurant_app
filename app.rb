@@ -11,6 +11,7 @@ require_relative 'models/food'
 require_relative 'models/order'
 require_relative 'models/party'
 
+
 configure :development do 
   use BetterErrors::Middleware
   BetterErrors.application_root = File.expand_path('..', __FILE__)
@@ -158,8 +159,27 @@ delete '/orders' do
   redirect "/parties"
 end
 
+get '/parties/:id/receipt' do
+  @party = Party.find(params[:id])
+  #@food = Food.find(params[:id])
+  @party.foods 
+  erb :receipt
+end
 
 
 
-#+GET | /parties/:id/receipt | Saves the party's receipt data to a file. Displays the content of the receipt. Offer the file for download.
-#+PATCH | /parties/:id/checkout | Marks the party as paid
+patch '/parties/:id/checkout' do 
+
+  Party.where()
+
+redirect '/parties/:id/receipt'
+end
+
+
+
+
+
+
+
+
+

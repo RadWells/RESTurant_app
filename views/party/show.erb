@@ -3,8 +3,6 @@
 <h2><%= @party.table_number %> ... party of <%= @party.size %></h2> 
   
 
-<h1> Paid bill?: <%= @party.paid %> </h1>
-
  <ul>
   <% @orders.each do |order| %>
   <li>
@@ -25,7 +23,7 @@
 <h2>Add item </h2>
 <form action="/orders" method= "post">
   <input type="text" name="food" value="Menu Item">
-  <input type="text" name="party_id" value="<%= @party.id %>"> <!-- make @party.id hidden-->
+  <input type="hidden" name="party_id" value="<%= @party.id %>"> <!-- make @party.id hidden-->
   <input type="submit">
 </form>
 
@@ -37,7 +35,6 @@
 </form> 
 
 
-<h2><%= @party.table_number %> ... party of <%= @party.size %></h2> 
-
-
-  
+<form action="/parties/<%=@party.id%>/receipt" method="get">
+  <input type="submit" value="Receipt">
+</form> 
