@@ -138,9 +138,9 @@ end
 #+POST | /orders | Creates a new order
 post '/orders' do
   party_id = params['party_id']
-  food = params['food']
-  item = Food.find_by(name:food).id
-  Order.create({party_id: party_id, food_id: item})
+  food_id = params['food_id']
+  #item = Food.find_by(name:food).id
+  Order.create({party_id: party_id, food_id: food_id})
   @orders = Order.where(party_id: party_id)
   redirect "/parties/#{party_id}"
 end

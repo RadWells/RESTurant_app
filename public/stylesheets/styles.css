@@ -12,12 +12,14 @@ body {
 }
 
 ul  {
-list-style-type: none;
+  list-style-type: none;
 }
 
 .banner {
 
-font-style: bold;
-font-size: 30px;
+  font-style: bold;
+  font-size: 33px;
+  text-align: center;
 
 }
+

@@ -1,4 +1,18 @@
 
+<div class='food-list'>
+  <ul>
+    <% @menu.each do |food| %>
+      <li>
+        <form action="/orders" method= "post">
+          <input type="hidden" name="food_id" value="<%= food.id %>"/>
+          <input type="hidden" name="party_id" value="<%= @party.id %>">
+          <input type="submit" value='<%= food.name %>'/>
+        </form>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
 
 <h2><%= @party.table_number %> ... party of <%= @party.size %></h2> 
   
