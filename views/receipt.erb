@@ -62,15 +62,6 @@
 
 
 
-
-
-
-
-
-
-
-<form action="/parties/<= @party.id%>/receipt " method="get">
-  <input type="hidden" name="_method" value="patch">
-  <input type="hidden" name="party.paid" value="true">
+<form action='/parties/<%=@party.id%>/checkout' method="get">
   <input type="submit" value="Checkout">
 </form> 

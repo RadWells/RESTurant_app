@@ -168,11 +168,11 @@ end
 
 
 
-patch '/parties/:id/checkout' do 
-
-  Party.where()
-
-redirect '/parties/:id/receipt'
+get '/parties/:id/checkout' do 
+  paying_party = Party.find(params[:id])
+  paying_party.paid = true
+  paying_party.save
+redirect '/parties'
 end
 
 
