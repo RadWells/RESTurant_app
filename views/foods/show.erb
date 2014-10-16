@@ -6,11 +6,11 @@
 
 
 
-<a href="/parties/<%= @party.id %>/edit">Edit this item?</a>
+<a href="/foods/<%= @item.id %>/edit">Edit this item?</a>
 
 
 
-<form action="/parties/<%= @item.id %>" method="post">
+<form action="/foods/<%= @item.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Remove">
 </form>

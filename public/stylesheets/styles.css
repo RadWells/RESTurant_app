@@ -1,6 +1,8 @@
 body {
-background-color: cyan;
-
-
-
+  background-color: #EEB422;
 }
+
+* {
+font-family: 'Droid Sans', sans-serif;
+}
+

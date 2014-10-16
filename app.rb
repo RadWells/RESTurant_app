@@ -11,9 +11,14 @@ require_relative 'models/food'
 require_relative 'models/order'
 require_relative 'models/party'
 
+configure :development do 
+  use BetterErrors::Middleware
+  BetterErrors.application_root = File.expand_path('..', __FILE__)
+end
+
 
 get '/' do
-  erb :index
+ erb :index
 end
 
 
@@ -80,6 +85,8 @@ end
 
 #+GET | /parties/:id | Display a single party and options for adding a food item to the party
 
+
+
 #+GET | /parties/new | Display a form for a new party
 
 get '/parties/new' do
@@ -95,9 +102,12 @@ post '/parties' do
   redirect '/parties'
 end
 
+#GET | /parties/:id | Display a single party and options for adding a food item to the party
 
 get '/parties/:id' do
   @party = Party.find(params[:id])
+  @menu = Food.all
+  @orders = Order.all
   erb :"party/show"
 end
 
@@ -125,12 +135,13 @@ delete '/parties/:id' do
 end
 
 #+POST | /orders | Creates a new order
-post '/parties' do
-  table = params['table_number']
-  size = params['size']
-  paid = params['paid']
-  Party.create({table_number: table, size: size, paid: paid})
-  redirect '/parties'
+post '/orders' do
+  party_id = params['party_id']
+  food = params['food']
+  item = Food.find_by(name:food).id
+  Order.create({party_id: party_id, food_id: item})
+  @orders = Order.where(party_id: party_id)
+  redirect "/parties/#{party_id}"
 end
 
 
@@ -141,6 +152,12 @@ end
 
 
 #+DELETE | /orders | Removes an order
+delete '/orders' do
+  party_id = params[:party_id]
+  Order.delete(params[:order_id])
+  redirect "/parties"
+end
+
 
 
 
