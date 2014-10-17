@@ -12,10 +12,6 @@ require_relative 'models/order'
 require_relative 'models/party'
 
 
-configure :development do 
-  use BetterErrors::Middleware
-  BetterErrors.application_root = File.expand_path('..', __FILE__)
-end
 
 
 get '/' do
@@ -39,10 +35,7 @@ end
 
 
 post '/foods' do
-  name = params['food_name']
-  cuisine = params['food_cuisine']
-  price = params['food_price']
-  Food.create({name: name, cuisine: cuisine, price: price})
+  Food.create(params[:food])
   redirect '/foods'
 end
 
@@ -57,7 +50,7 @@ patch '/foods/:id' do
   name = params['food_name']
   cuisine = params['food_cuisine']
   price = params['food_price']
-  @food.update({name: name, cuisine: cuisine, price: price})
+  @food.update({name: name, category: cuisine, price: price})
   redirect '/foods'
 end
 
