@@ -9,17 +9,92 @@ a {
 
 body {
   background-color: #EEB422;
+  text-align: center;
 }
 
 ul  {
   list-style-type: none;
+  text-align: center;
+  font-size: 25px;
 }
 
 .banner {
-
   font-style: bold;
-  font-size: 33px;
+  font-size: 20px;
   text-align: center;
+}
+
+.navi {
+  width: 400px;
+  margin: 0 auto;
 
 }
 
+h1 {
+  text-align: center;
+}
+
+.receipt{
+  width: 200px;
+  margin: 0 auto; 
+  border-style: solid;
+  border-width: 1px;
+}
+
+.button {
+   border: 1px solid #cd2626;
+   background: #eeb422;
+   
+   padding: 5px 10px;
+   -webkit-border-radius: 1px;
+   -moz-border-radius: 1px;
+   border-radius: 1px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #cd2626;
+   font-size: 20px;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #cd2626;
+   background: #cd2626;
+   color: #eeb422;
+   }
+.button:active {
+   border-top-color: #eeb422;
+   background: #eeb422;
+   }
+
+  .food-list{
+    float: right;
+    width: 150px; 
+    border: 1px solid;
+    border-radius: 25px;
+    font-size: 15px;
+    padding-right: 20px;
+  }
+
+  .order-list{
+    float: left;
+    width: 175px;
+    border: 1px solid; 
+    border-radius: 25px;
+    font-size: 15px;
+    padding-right: 20px;
+
+}
+
+.footer{
+  margin-left: auto;
+  margin-right: auto;
+  width: 30px;
+}
+
+.header{
+  font-size: 60px;
+
+
+}

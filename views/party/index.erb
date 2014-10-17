@@ -1,5 +1,7 @@
+<h1>Seated Parties</h1>
+
 <ul>
   <% @patrons.each do |patron|%>
-  <li> <a href="/parties/<%= patron.id %>">Table Number <%= patron.table_number%>   :   Party Size <%= patron.size %>     :      Checked Out: <%= patron.paid %> </li>
+  <li> <a href="/parties/<%= patron.id %>">Table Number <%= patron.table_number%>   :   Party Size <%= patron.size %>     :      Checked Out: <%= patron.paid %>     :     Server: <%= patron.server %></li>
  <%end%>
 </ul>

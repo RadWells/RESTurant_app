@@ -1,5 +1,9 @@
 
+<h2>Table <%= @party.table_number %> party of <%= @party.size %> being served by <%= @party.server%> </h2> 
+
+
 <div class='food-list'>
+  <h2>Add to Order</h2>
   <ul>
     <% @menu.each do |food| %>
       <li>
@@ -14,41 +18,38 @@
 </div>
 
 
-<h2><%= @party.table_number %> ... party of <%= @party.size %></h2> 
   
-
+<div class="order-list">
+  <h2>Party's Orders</h2>
  <ul>
-  <% @orders.each do |order| %>
-  <li>
-  <form action="/orders" method='post'/>
-  <input type="hidden" name="_method" value="delete"/>
-  <input type="hidden" name="order_id" value="<%= order.id %>">
-  <input type="hidden" name="party_id" value="<%= order.party_id %>">
-  <h3> <input type="submit" value='X'/> <%= order.food.name %> </h3>
-  </form>
-  </li> 
-  <% end %>
+    <% @orders.each do |order| %>
+      <li>
+        <form action="/orders" method='post'/>
+        <input type="hidden" name="_method" value="delete"/>
+        <input type="hidden" name="order_id" value="<%= order.id %>">
+        <input type="hidden" name="party_id" value="<%= order.party_id %>">
+        <h3> <input type="submit" value='X'/> <%= order.food.name %> </h3>
+        </form>
+      </li> 
+    <% end %>
   </ul>
+</div>
 
 
-
-<a href="/parties/<%= @party.id %>/edit">Edit this party?</a>
-
-<h2>Add item </h2>
-<form action="/orders" method= "post">
-  <input type="text" name="food" value="Menu Item">
-  <input type="hidden" name="party_id" value="<%= @party.id %>"> <!-- make @party.id hidden-->
-  <input type="submit">
-</form>
-
+<div class="footer">
+<form action="/parties/<%= @party.id %>/edit %>" method="get">
+  <input class="button" type="submit" value="Edit   Party">
+</form> 
 
 
 <form action="/parties/<%= @party.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
+  <input class="button" type="submit" value="Delete Party">
 </form> 
 
 
 <form action="/parties/<%= @party.id %>/receipt" method="get">
-  <input type="submit" value="Receipt">
+  <input class="button" type="submit" value="Print Receipt">
 </form> 
+
+</div>

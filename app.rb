@@ -99,7 +99,8 @@ post '/parties' do
   table = params['table_number']
   size = params['size']
   paid = params['paid']
-  Party.create({table_number: table, size: size, paid: paid})
+  server = params['server']
+  Party.create({table_number: table, size: size, paid: paid, server: server})
   redirect '/parties'
 end
 

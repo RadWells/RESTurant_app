@@ -1,8 +1,12 @@
- <h2>RECEIPT for Table <%= @party.table_number %></h2>
+<div class="receipt">
+ <h2>Skeet's Red Hots</h2>
+ <p>1313 Mockingbird Lane,
+ Alphaville, NY
+ 777.777.7777</p>
 
 
 <h6>
-  <%= Time.now.strftime("on %m/%d/%Y at %I:%M%p") %>
+  <%= Time.now.strftime(" %m/%d/%Y at %I:%M%p") %>
 </h6>
 
 <table>
@@ -53,10 +57,11 @@
 </table>
 
 <h4>Thanks for coming to Skeet's. See you soon!</h4> 
+</div>
 
-
-<a href="javascript:if(window.print)window.print()">Print</a>
-
+<form action="javascript:if(window.print)window.print()" method="get">
+  <input type="submit" value="Print Receipt">
+</form> 
 
 
 
