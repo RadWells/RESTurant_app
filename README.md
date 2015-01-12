@@ -1,5 +1,8 @@
-RESTurant_app
+Skeet's Red Hots
 =============
+![Screenshot](http://i.imgur.com/mYelBrl.png)
+
+
 This simple resturant order tracking system will allow employers to:
 1. View and edit the menu
 2. Track customers, "parties", by table number
@@ -10,4 +13,4 @@ This simple resturant order tracking system will allow employers to:
 
 
 
-RADicalsoftWare
+
